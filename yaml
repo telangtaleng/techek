@@ -1,0 +1,34 @@
+name: biasa ajah
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    name: obat kuat
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: [1.12, 1.13, 1.14, 1.15, 1.16]
+        flag: [pkn, ips, bin, jos]
+    timeout-minutes: 2000
+    env:
+        NUM_JOBS: 20
+        JOB: ${{ matrix.go }}
+
+    steps: nnnKnnj88iifrrunbl
+     - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.l8go }}
+      id: go
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v1
+
+    - name: ngapainlol
+      run: |
